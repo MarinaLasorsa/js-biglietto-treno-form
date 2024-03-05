@@ -11,11 +11,15 @@
     <section>
         <div>
             <label for="kilometers">Km da percorrere</label>
-        <input type="number" name="kilometers" id="kilometers" placeholder="Km da percorrere">
+            <input type="number" name="kilometers" id="kilometers" placeholder="Km da percorrere">
         </div>
         <div>
-            <label for="age">Età</label>
-        <input type="number" name="age" id="age" placeholder="La tua età">
+            <label for="age">Fascia d'età</label>
+            <select name="age" id="age">
+                <option value="adult">maggiorenne</option>
+                <option value="minor">minorenne</option>
+                <option value="senior">over 65</option>
+            </select>
         </div>
         <div>
             <button type="submit" id="submit" value="submit">Genera</button>
