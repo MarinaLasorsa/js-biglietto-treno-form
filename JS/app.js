@@ -6,7 +6,7 @@ un input per i km e un input per l’età, e un bottone.
 Cliccando sul bottone recuperate i valori delle input*/
 
 //1. dichiarare e selezionare gli elementi di input kilometers e age come variabili
-const inputKilometersElement = document.getElementById("kilometers"); 
+const inputKilometersElement = document.getElementById("kilometers");
 console.log(inputKilometersElement);
 
 const inputAgeElement = document.getElementById("age");
@@ -20,11 +20,51 @@ console.log(submitElement);
 
 submitElement.addEventListener("click", function () {
 
-    let kilometers = inputKilometersElement.value; //string
-    let age = inputAgeElement.value; //string
+    let kilometers = parseInt(inputKilometersElement.value); //number
+    let age = parseInt(inputAgeElement.value); //number
 
-    console.log(kilometers, age)
+    console.log(kilometers, age);
+
+
+    //Calcolare il prezzo del biglietto:
+
+    //1. definire prezzo biglietto iniziale moltiplicando 0.21 per la variabile chilometri dichiarata
+
+    let basePrice = kilometers * 0.21; //number
+    console.log("prezzo base: ", basePrice);
+
+    //2. definire variabile sconto come 0
+
+    let discount = 0;
+
+    //3. SE variabile age è meno di 18, 
+
+    if (age < 18) {
+
+        //lo sconto è del 20% quindi prezzo iniziale moltiplicato per 0.2
+        discount = basePrice * 0.2;
+    }  
+
+    //4. ALTRIMENTI SE variabile age è maggiore di 65,
+    else if (age > 65) {
+
+        //lo sconto è del 40% quindi prezzo iniziale moltiplicato per 0.4
+        discount = basePrice * 0.4;
+    }
+
+    //5. ALTRIMENTI sconto è 0 quindi prezzo iniziale moltiplicato per 0
+    else {
+        discount = basePrice * 0;
+    }
+
+    //6. dichiarare prezzo finale come prezzo iniziale meno la variabile sconto
+    
+    const finalPrice = basePrice - discount;
+
+    //7. stampare prezzo finale in console (con solo 2 cifre decimali)
+
+    console.log("Prezzo totale del biglietto: " + finalPrice.toFixed(2));
+
 })
-
 
 
